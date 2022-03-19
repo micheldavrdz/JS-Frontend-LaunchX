@@ -1,20 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Pokédex - Pokémon Dexter">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Pokédex - Pokémon Dexter" />
     <meta name="description" content="Pokémon encyclopedia" />
     <meta name="author" content="Michel Dávila Rodríguez" />
-    <link rel="shortcut icon" href="img/rotom.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="img/rotom.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="sass/main.css" />
     <title>Pokédex</title>
-</head>
-<body>
+  </head>
+  <body id="pokedex_body">
     <main>
-        
+      <div class="pokedex-container container grid">
+        <!-- Pokédex header -->
+        <section role="region" class="grid pokedex-header col-12 col-md-6">
+          <input
+            type="text"
+            id="search_bar"
+            class="pokemon-search col-12"
+            placeholder="Look for a Pokémon (Enter to search)"
+            aria-label="Search"
+            value="pikachu"
+          />
+          <div class="pokedex-header col-12">
+            <div class="pokemon-identity col-12">
+              <h1 id="poke_name" class="pokemon-name" aria-label="Pokémon Name">
+                Pikachu
+              </h1>
+
+              <h2
+                id="poke_number"
+                class="pokemon-number"
+                aria-label="Pokédex Number"
+              >
+                #25
+              </h2>
+            </div>
+            <div id="poke_types" class="pokemon-type"></div>
+            <div class="pokemon-image">
+              <img class="poke-img" id="poke_img" src="" alt="" />
+            </div>
+          </div>
+        </section>
+        <!-- /End Pokédex header -->
+        <!-- Pokédex info -->
+        <section role="region" class="pokedex-info col-12 col-md-6">
+          <div class="pokedex-body">
+            <div class="pokedex-tabs">
+              <button
+                class="pokedex-tab"
+                id="tab_1"
+                aria-controls="tab-1-content"
+                onclick="openTab(event, 'basic_content')"
+              >
+                <span style="font-family: 'Poppins', sans-serif"
+                  >Basic Info</span
+                >
+              </button>
+              <button
+                class="pokedex-tab"
+                id="tab_2"
+                aria-controls="tab-2-content"
+                onclick="openTab(event, 'stats')"
+              >
+                <span style="font-family: 'Poppins', sans-serif">Stats</span>
+              </button>
+              <button
+                class="pokedex-tab"
+                id="tab_3"
+                aria-controls="tab-3-content"
+                onclick="openTab(event, 'moves')"
+              >
+                <span style="font-family: 'Poppins', sans-serif">Moves</span>
+              </button>
+            </div>
+            <!-- Pokémon general info tab -->
+            <div id="basic_content" class="pokemon-general tab-content">
+              <span class="grid">
+                <label class="col-6" for="height"
+                  ><strong>Height</strong></label
+                >
+                <p id="poke_height" class="pokemon-height col-6"></p>
+              </span>
+              <span class="grid">
+                <label class="col-6" for="weight"
+                  ><strong>Weight</strong></label
+                >
+                <p id="poke_weight" class="pokemon-weight col-6"></p>
+              </span>
+              <span class="grid">
+                <label class="col-6" for="abilities"
+                  ><strong>Abilities</strong></label
+                >
+                <ul id="poke_abilities" class="pokemon-abilities col-6"></ul>
+              </span>
+            </div>
+            <!-- /End Pokémon general info tab -->
+            <!-- Pokémon stats tab -->
+            <div id="stats" class="pokemon-stats tab-content">
+              <span class="grid">
+                <label class="col-6" for="poke_hp"><strong>HP</strong></label>
+                <span id="poke_hp" class="pokemon-hp grid col-6"> </span>
+              </span>
+              <span class="grid">
+                <label class="col-6" for="poke_atk"
+                  ><strong>Attack</strong></label
+                >
+                <span id="poke_atk" class="pokemon-attack grid col-6"> </span>
+              </span>
+              <span class="grid">
+                <label class="col-6" for="poke_def"
+                  ><strong>Defense</strong></label
+                >
+                <span id="poke_def" class="pokemon-defense grid col-6"> </span>
+              </span>
+              <span class="grid">
+                <label class="col-6" for="poke_spatk"
+                  ><strong>Sp. Atk</strong></label
+                >
+                <span id="poke_spatk" class="pokemon-sp-attack grid col-6">
+                </span>
+              </span>
+              <span class="grid">
+                <label class="col-6" for="poke_spdef"
+                  ><strong>Sp. Def</strong></label
+                >
+                <span id="poke_spdef" class="pokemon-sp-defense grid col-6">
+                </span>
+              </span>
+              <span class="grid">
+                <label class="col-6" for="poke_spd"
+                  ><strong>Speed</strong></label
+                >
+                <span id="poke_spd" class="pokemon-speed grid col-6"> </span>
+              </span>
+            </div>
+            <!-- /End Pokémon stats tab -->
+            <!-- Pokémon moves tab -->
+            <div id="moves" class="pokemon-moves tab-content">
+              <ul id="poke_moves" class="grid poke-moves"></ul>
+            </div>
+            <!-- /End Pokémon moves tab -->
+          </div>
+        </section>
+        <!-- /End Pokédex info -->
+      </div>
     </main>
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
